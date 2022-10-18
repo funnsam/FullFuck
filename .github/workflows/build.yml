@@ -18,12 +18,27 @@ jobs:
       with:
         go-version: 1.19.2
 
-    - name: Build
+    - name: Build Windows
       run: bash ./make.sh
+           mv ffk ffk.exe
+      env:
+        GOOS: windows
 
-    - name: 'Upload Artifact'
+    - name: Build Linux
+      run: bash ./make.sh
+      env:
+        GOOS: linux
+
+    - name: 'Upload Artifact 1'
       uses: actions/upload-artifact@v3
       with:
         name: Linux FFK executable
         path: ffk
+        retention-days: 5
+
+    - name: 'Upload Artifact 2'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Windows FFK executable
+        path: ffk.exe
         retention-days: 5
