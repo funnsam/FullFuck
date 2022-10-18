@@ -37,7 +37,7 @@ jobs:
     - name: Build ARM macOS
       run: |
         bash ./make.sh
-        mv ffk ffkd
+        mv ffk ffkdr
       env:
         GOOS: darwin
         GOARCH: arm64
@@ -45,7 +45,7 @@ jobs:
     - name: Build macOS
       run: |
         bash ./make.sh
-        mv ffk ffkdr
+        mv ffk ffkd
       env:
         GOOS: darwin
         GOARCH: amd64
