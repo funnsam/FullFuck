@@ -19,7 +19,8 @@ jobs:
         go-version: 1.19.2
 
     - name: Build Windows
-      run: bash ./make.sh
+      run: |
+           bash ./make.sh
            mv ffk ffk.exe
       env:
         GOOS: windows
