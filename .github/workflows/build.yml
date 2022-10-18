@@ -24,20 +24,67 @@ jobs:
            mv ffk ffk.exe
       env:
         GOOS: windows
+        GOARCH: amd64
+
+    - name: Build ARM Linux
+      run: |
+        bash ./make.sh
+        mv ffk ffkr
+      env:
+        GOOS: linux
+        GOARCH: arm64
+
+    - name: Build ARM macOS
+      run: |
+        bash ./make.sh
+        mv ffk ffkd
+      env:
+        GOOS: darwin
+        GOARCH: arm64
+
+    - name: Build macOS
+      run: |
+        bash ./make.sh
+        mv ffk ffkdr
+      env:
+        GOOS: darwin
+        GOARCH: amd64
 
     - name: Build Linux
       run: bash ./make.sh
       env:
         GOOS: linux
+        GOARCH: amd64
 
-    - name: 'Upload Artifact 1'
+    - name: 'Upload Linux AMD64'
       uses: actions/upload-artifact@v3
       with:
         name: Linux FFK executable
         path: ffk
         retention-days: 5
 
-    - name: 'Upload Artifact 2'
+    - name: 'Upload Linux ARM64'
+      uses: actions/upload-artifact@v3
+      with:
+        name: Linux ARM FFK executable
+        path: ffkr
+        retention-days: 5
+
+    - name: 'Upload macOS AMD64'
+      uses: actions/upload-artifact@v3
+      with:
+        name: macOS FFK executable
+        path: ffkd
+        retention-days: 5
+
+    - name: 'Upload macOS ARM64'
+      uses: actions/upload-artifact@v3
+      with:
+        name: macOS ARM FFK executable
+        path: ffkdr
+        retention-days: 5
+
+    - name: 'Upload Windows AMD64'
       uses: actions/upload-artifact@v3
       with:
         name: Windows FFK executable
