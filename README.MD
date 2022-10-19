@@ -1,4 +1,6 @@
 # The FullFuck Language
+[![Build](https://github.com/funnsam/FullFuck/actions/workflows/build.yml/badge.svg?branch=main&event=push)](https://github.com/funnsam/FullFuck/actions/workflows/build.yml)
+
 **As the name says, it's the most fucked programming language EVER**
 
 ## Command line usage
