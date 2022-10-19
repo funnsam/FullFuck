@@ -29,3 +29,10 @@ And this is just Hello world
 
 ## The memory
 The memory is an 8-bit unsigned integer
+
+# Nice Screenshots
+![A RNG Test](/assets/source.png)
+A RNG Test
+
+![The Result](/assets/output.png)
+The Result
