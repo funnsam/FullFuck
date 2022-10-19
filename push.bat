@@ -2,5 +2,5 @@
 set commit=%1
 git add .
 git commit -m %commit%
-git push origin main-pending
+git push -f -u origin main-pending
 @echo on
