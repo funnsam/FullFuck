@@ -1,6 +1,11 @@
 # The FullFuck Language
 **As the name says, it's the most fucked programming language EVER**
 
+## Command line usage
+```
+ffk input.ff output.urcl
+```
+
 ## How fucked it is?
 ```
 +047[+]>01D[+]>007[+]>>003[+]>04F[-]>057[+]>008[-]>003[+]>008[-]>008[-]>043[-]>
