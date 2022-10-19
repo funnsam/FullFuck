@@ -86,13 +86,13 @@ func main() {
 			t, Uerr = hex.DecodeString(string(ParsingHexChars))
 			checkUErr()
 
-			ParsingHex = 0
-			ParsingHexChars = make([]uint8, 0, 2)
 			if ParsingHex != 3 {
 				LoopLoopsTimes = append(LoopLoopsTimes, -1)
 			} else {
 				LoopLoopsTimes = append(LoopLoopsTimes, int16(t[0]))
 			}
+			ParsingHex = 0
+			ParsingHexChars = make([]uint8, 0, 2)
 		case ']':
 			TokenList = append(TokenList, Token{LoopLayer, 5, LoopID})
 			LoopLayer--
