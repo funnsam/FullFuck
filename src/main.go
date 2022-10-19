@@ -8,7 +8,11 @@ import (
 
 type Token struct {
 	Lable  uint64 // Lable is for the register for the loop count
+<<<<<<< HEAD
 	ID     uint8  // ID is used for identifying tokens
+=======
+	ID     uint32 // ID is used for identifying tokens
+>>>>>>> f1092b1 (v1.0)
 	LoopID uint64 // LoopID is uniqe for each loop
 }
 
@@ -26,7 +30,11 @@ var OutputFile []byte
 var FullFuckToURCLTable = []string{
 	"INC R1 R1\n",
 	"DEC R1 R1\n",
+<<<<<<< HEAD
 	"OUT %TEXT R1\n",
+=======
+	"OUT %d R1\n",
+>>>>>>> f1092b1 (v1.0)
 	"BRZ .loop%d_e R1\nMOV R%d %d\n.loop%d\n",
 	"DEC R%d R%d\nBNZ .loop%d R%d\n.loop%d_e\n",
 }
@@ -52,7 +60,17 @@ func main() {
 		case '-':
 			TokenList = append(TokenList, Token{LoopLayer, 1, LoopID})
 		case '>':
-			TokenList = append(TokenList, Token{LoopLayer, 2, LoopID})
+			if ParsingHex == 3 {
+				t, Uerr = hex.DecodeString(string(ParsingHexChars))
+				checkUErr()
+
+				TokenList = append(TokenList, Token{LoopLayer, 2 | uint32(t[0])<<8, LoopID})
+
+				ParsingHex = 0
+				ParsingHexChars = make([]uint8, 0, 2)
+			} else {
+				TokenList = append(TokenList, Token{LoopLayer, 258, LoopID})
+			}
 		case '0':
 			ParsingHex = 1
 		case '[':
@@ -77,7 +95,9 @@ func main() {
 	// Compile to URCL now
 	for _, element := range TokenList {
 		var resultAppend string
-		switch element.ID {
+		switch element.ID & 0xFF {
+		case 2:
+			resultAppend = fmt.Sprintf(FullFuckToURCLTable[2], element.ID>>8)
 		case 3:
 			resultAppend = fmt.Sprintf(FullFuckToURCLTable[3], element.LoopID, element.Lable+1, LoopLoopsTimes[element.LoopID], element.LoopID)
 		case 4:
