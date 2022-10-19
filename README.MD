@@ -18,6 +18,7 @@ And this is just Hello world
 ```
 +       will add one to the memory
 -       will minus one to the memory
+[]      will loop the content inside [] forever
 0nn[]   will loop the content inside [] for nn times (nn is a hex number), also skips if memory is 0
 >       will output the ASCII from the memory
 0nn>    will output the memory to URCL port nn (nn is a hex number)
