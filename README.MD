@@ -31,8 +31,8 @@ And this is just Hello world
 The memory is an 8-bit unsigned integer
 
 # Nice Screenshots
-![A RNG Test](/assets/source.png)
+![A RNG Test](/assets/RNGTest.png)
 A RNG Test
 
-![The Result](/assets/output.png)
+![The Result](/assets/RNGTestURCL.png)
 The Result
