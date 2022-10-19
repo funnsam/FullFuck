@@ -27,6 +27,7 @@ var FullFuckToURCLTable = []string{
 	"INC R1 R1\n",
 	"DEC R1 R1\n",
 	"OUT %d R1\n",
+	"IN R1 %d\n",
 	"BRZ .loop%d_e R1\nMOV R%d %d\n.loop%d\n",
 	"DEC R%d R%d\nBNZ .loop%d R%d\n.loop%d_e\n",
 }
@@ -63,6 +64,18 @@ func main() {
 			} else {
 				TokenList = append(TokenList, Token{LoopLayer, 258, LoopID})
 			}
+		case '<':
+			if ParsingHex == 3 {
+				t, Uerr = hex.DecodeString(string(ParsingHexChars))
+				checkUErr()
+
+				TokenList = append(TokenList, Token{LoopLayer, 3 | uint32(t[0])<<8, LoopID})
+
+				ParsingHex = 0
+				ParsingHexChars = make([]uint8, 0, 2)
+			} else {
+				TokenList = append(TokenList, Token{LoopLayer, 259, LoopID})
+			}
 		case '0':
 			ParsingHex = 1
 		case '[':
@@ -70,7 +83,7 @@ func main() {
 				LoopID++
 				LoopLayer++
 
-				TokenList = append(TokenList, Token{LoopLayer, 3, LoopID})
+				TokenList = append(TokenList, Token{LoopLayer, 4, LoopID})
 				t, Uerr = hex.DecodeString(string(ParsingHexChars))
 				checkUErr()
 				LoopLoopsTimes = append(LoopLoopsTimes, t[0])
@@ -79,7 +92,7 @@ func main() {
 				ParsingHexChars = make([]uint8, 0, 2)
 			}
 		case ']':
-			TokenList = append(TokenList, Token{LoopLayer, 4, LoopID})
+			TokenList = append(TokenList, Token{LoopLayer, 5, LoopID})
 			LoopLayer--
 		}
 	}
@@ -91,9 +104,11 @@ func main() {
 		case 2:
 			resultAppend = fmt.Sprintf(FullFuckToURCLTable[2], element.ID>>8)
 		case 3:
-			resultAppend = fmt.Sprintf(FullFuckToURCLTable[3], element.LoopID, element.Lable+1, LoopLoopsTimes[element.LoopID], element.LoopID)
+			resultAppend = fmt.Sprintf(FullFuckToURCLTable[3], element.ID>>8)
 		case 4:
-			resultAppend = fmt.Sprintf(FullFuckToURCLTable[4], element.Lable+1, element.Lable+1, element.LoopID, element.Lable+1, element.LoopID)
+			resultAppend = fmt.Sprintf(FullFuckToURCLTable[4], element.LoopID, element.Lable+1, LoopLoopsTimes[element.LoopID], element.LoopID)
+		case 5:
+			resultAppend = fmt.Sprintf(FullFuckToURCLTable[5], element.Lable+1, element.Lable+1, element.LoopID, element.Lable+1, element.LoopID)
 		default:
 			resultAppend = FullFuckToURCLTable[element.ID]
 		}
