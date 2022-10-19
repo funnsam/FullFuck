@@ -8,11 +8,7 @@ import (
 
 type Token struct {
 	Lable  uint64 // Lable is for the register for the loop count
-<<<<<<< HEAD
-	ID     uint8  // ID is used for identifying tokens
-=======
 	ID     uint32 // ID is used for identifying tokens
->>>>>>> f1092b1 (v1.0)
 	LoopID uint64 // LoopID is uniqe for each loop
 }
 
@@ -30,11 +26,7 @@ var OutputFile []byte
 var FullFuckToURCLTable = []string{
 	"INC R1 R1\n",
 	"DEC R1 R1\n",
-<<<<<<< HEAD
-	"OUT %TEXT R1\n",
-=======
 	"OUT %d R1\n",
->>>>>>> f1092b1 (v1.0)
 	"BRZ .loop%d_e R1\nMOV R%d %d\n.loop%d\n",
 	"DEC R%d R%d\nBNZ .loop%d R%d\n.loop%d_e\n",
 }
