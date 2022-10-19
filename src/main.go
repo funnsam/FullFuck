@@ -19,7 +19,7 @@ var LoopLayer uint64
 var TokenList []Token
 var ParsingHex uint8
 var ParsingHexChars []uint8
-var LoopLoopsTimes = []uint8{0}
+var LoopLoopsTimes = []int16{0}
 var t []uint8
 var OutputFile []byte
 
@@ -79,17 +79,19 @@ func main() {
 		case '0':
 			ParsingHex = 1
 		case '[':
-			if ParsingHex == 3 {
-				LoopID++
-				LoopLayer++
+			LoopID++
+			LoopLayer++
 
-				TokenList = append(TokenList, Token{LoopLayer, 4, LoopID})
-				t, Uerr = hex.DecodeString(string(ParsingHexChars))
-				checkUErr()
-				LoopLoopsTimes = append(LoopLoopsTimes, t[0])
+			TokenList = append(TokenList, Token{LoopLayer, 4, LoopID})
+			t, Uerr = hex.DecodeString(string(ParsingHexChars))
+			checkUErr()
 
-				ParsingHex = 0
-				ParsingHexChars = make([]uint8, 0, 2)
+			ParsingHex = 0
+			ParsingHexChars = make([]uint8, 0, 2)
+			if ParsingHex != 3 {
+				LoopLoopsTimes = append(LoopLoopsTimes, -1)
+			} else {
+				LoopLoopsTimes = append(LoopLoopsTimes, int16(t[0]))
 			}
 		case ']':
 			TokenList = append(TokenList, Token{LoopLayer, 5, LoopID})
@@ -106,9 +108,17 @@ func main() {
 		case 3:
 			resultAppend = fmt.Sprintf(FullFuckToURCLTable[3], element.ID>>8)
 		case 4:
-			resultAppend = fmt.Sprintf(FullFuckToURCLTable[4], element.LoopID, element.Lable+1, LoopLoopsTimes[element.LoopID], element.LoopID)
+			if LoopLoopsTimes[element.LoopID] == -1 {
+				resultAppend = fmt.Sprintf(".loop%d\n", element.LoopID)
+			} else {
+				resultAppend = fmt.Sprintf(FullFuckToURCLTable[4], element.LoopID, element.Lable+1, LoopLoopsTimes[element.LoopID], element.LoopID)
+			}
 		case 5:
-			resultAppend = fmt.Sprintf(FullFuckToURCLTable[5], element.Lable+1, element.Lable+1, element.LoopID, element.Lable+1, element.LoopID)
+			if LoopLoopsTimes[element.LoopID] == -1 {
+				resultAppend = fmt.Sprintf("JMP .loop%d\n", element.LoopID)
+			} else {
+				resultAppend = fmt.Sprintf(FullFuckToURCLTable[5], element.Lable+1, element.Lable+1, element.LoopID, element.Lable+1, element.LoopID)
+			}
 		default:
 			resultAppend = FullFuckToURCLTable[element.ID]
 		}
