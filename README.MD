@@ -1,4 +1,4 @@
-<div style="float:right" width="32" height="32">
+<div align="center" width="32" height="32">
 
 ![FullFuck Logo](/assets/iconlight.png#gh-light-mode-only)
 ![FullFuck Logo](/assets/icondark.png#gh-dark-mode-only)
