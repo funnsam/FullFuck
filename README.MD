@@ -1,5 +1,6 @@
 # The FullFuck Language
 [![Build](https://github.com/funnsam/FullFuck/actions/workflows/build.yml/badge.svg?branch=main&event=push)](https://github.com/funnsam/FullFuck/actions/workflows/build.yml)
+[![CodeFactor](https://www.codefactor.io/repository/github/funnsam/fullfuck/badge)](https://www.codefactor.io/repository/github/funnsam/fullfuck)
 
 **As the name says, it's the most fucked programming language EVER**
 
