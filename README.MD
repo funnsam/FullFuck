@@ -1,7 +1,11 @@
 <p align="center" style="width:64px;height:64px;">
+
 ![FullFuck Logo](/assets/iconlight.png#gh-light-mode-only)
+
 ![FullFuck Logo](/assets/icondark.png#gh-dark-mode-only)
+
 </p>
+
 # The FullFuck Language
 [![Build](https://github.com/funnsam/FullFuck/actions/workflows/build.yml/badge.svg?branch=main&event=push)](https://github.com/funnsam/FullFuck/actions/workflows/build.yml)
 [![CodeFactor](https://www.codefactor.io/repository/github/funnsam/fullfuck/badge)](https://www.codefactor.io/repository/github/funnsam/fullfuck)
