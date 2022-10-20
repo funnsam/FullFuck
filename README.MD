@@ -23,14 +23,16 @@ And this is just Hello world
 
 ## Syntax
 ```
-+       will add one to the memory
--       will minus one to the memory
-[]      will loop the content inside [] forever
-0nn[]   will loop the content inside [] for nn times (nn is a hex number), also skips if memory is 0
->       will output the ASCII from the memory
-0nn>    will output the memory to URCL port nn (nn is a hex number)
-<       will copy ASCII input to the memory
-0nn<    will copy data from URCL port nn to the memory (nn is a hex number)
++               will add one to the memory
+-               will minus one to the memory
+[]              will loop the content inside [] forever
+0nn[]           will loop the content inside [] for nn times (nn is a hex number), also skips if memory is 0
+>               will output the ASCII from the memory
+0nn>            will output the memory to URCL port nn (nn is a hex number)
+%port_name%>    will output the memory to URCL port portname
+<               will copy ASCII input to the memory
+0nn<            will copy data from URCL port nn to the memory (nn is a hex number)
+%port_name%>    will copy data from URCL port portname to the memory
 ```
 
 
