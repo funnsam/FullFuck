@@ -1,6 +1,6 @@
-<p align="center">
-![FullFuck Logo](/assets/iconlight.png#gh-light-mode-only =64x64)
-![FullFuck Logo](/assets/icondark.png#gh-dark-mode-only =64x64)
+<p align="center" style="width:64px;height:64px;">
+![FullFuck Logo](/assets/iconlight.png#gh-light-mode-only)
+![FullFuck Logo](/assets/icondark.png#gh-dark-mode-only)
 </p>
 # The FullFuck Language
 [![Build](https://github.com/funnsam/FullFuck/actions/workflows/build.yml/badge.svg?branch=main&event=push)](https://github.com/funnsam/FullFuck/actions/workflows/build.yml)
