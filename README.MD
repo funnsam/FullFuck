@@ -2,6 +2,8 @@
 
 ![FullFuck Logo](/assets/iconlight.png#gh-light-mode-only)
 ![FullFuck Logo](/assets/icondark.png#gh-dark-mode-only)
+
+(Licenced under [CC0](https://creativecommons.org/publicdomain/zero/1.0/legalcode))
 </div>
 
 # The FullFuck Language
