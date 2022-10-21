@@ -63,6 +63,8 @@ var FullFuckToURCLTable = []string{
 	"MOV R1 R%d\n",
 }
 
+// ParseSpecial used list: 1, 2, 8, 9, 10
+
 func SpecialParsing(element byte) {
 	if ParsingSpecial == 1 || ParsingSpecial == 2 {
 		ParsingSpecialBuffer = append(ParsingSpecialBuffer, element)
