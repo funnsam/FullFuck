@@ -43,12 +43,11 @@ $               will get the current loop counter (highest number means first lo
 ## The memory
 The memory is an 8-bit unsigned integer
 
-# Nice Screenshots
-![A RNG Test](/assets/RNGTest.png)
-A RNG Test
-
-![The Result](/assets/RNGTestURCL.png)
-The Result
-
 # Notes
 - Logo licenced under [CC4.0](/assets/README.md)
+
+# Nice Screenshots
+![A RNG Test](/assets/RNGTest.svg)
+![The Result](/assets/RNGTestResult.svg)
+![A Graphic Test](/assets/Graphics.svg)
+![The Result](/assets/GraphicsResult.svg)
