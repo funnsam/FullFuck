@@ -1,9 +1,8 @@
 <div align="center" width="32" height="32">
 
-![FullFuck Logo](/assets/iconlight.png#gh-light-mode-only)
-![FullFuck Logo](/assets/icondark.png#gh-dark-mode-only)
+![FullFuck Logo](/assets/iconlight.svg#gh-light-mode-only)
+![FullFuck Logo](/assets/icondark.svg#gh-dark-mode-only)
 
-(Licenced under [CC4.0](/assets/README.md))
 </div>
 
 # The FullFuck Language
@@ -35,6 +34,9 @@ And this is just Hello world
 <               will copy ASCII input to the memory
 0nn<            will copy data from URCL port nn to the memory (nn is a hex number)
 %port_name%>    will copy data from URCL port portname to the memory
+?i / ?I         will pop the thing in stack
+?o / ?O         will push a thing to the stack
+$               will get the current loop counter (highest number means first loop)
 ```
 
 
@@ -47,3 +49,6 @@ A RNG Test
 
 ![The Result](/assets/RNGTestURCL.png)
 The Result
+
+# Notes
+- Logo licenced under [CC4.0](/assets/README.md)
