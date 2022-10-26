@@ -21,7 +21,7 @@ jobs:
     - name: Build Windows
       run: |
            make windows
-           mv ffk ffk.exe
+           mv ffk.exe ffk.exe
       env:
         GOOS: windows
         GOARCH: amd64
