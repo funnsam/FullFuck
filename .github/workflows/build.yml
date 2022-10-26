@@ -19,39 +19,31 @@ jobs:
         go-version: 1.19.2
 
     - name: Build Windows
-      run: |
-           bash ./make.sh
-           mv ffk ffk.exe
+      run: make
       env:
         GOOS: windows
         GOARCH: amd64
 
     - name: Build ARM Linux
-      run: |
-        bash ./make.sh
-        mv ffk ffkr
+      run: make
       env:
         GOOS: linux
         GOARCH: arm64
 
     - name: Build ARM macOS
-      run: |
-        bash ./make.sh
-        mv ffk ffkdr
+      run: make
       env:
         GOOS: darwin
         GOARCH: arm64
 
     - name: Build macOS
-      run: |
-        bash ./make.sh
-        mv ffk ffkd
+      run: make
       env:
         GOOS: darwin
         GOARCH: amd64
 
     - name: Build Linux
-      run: bash ./make.sh
+      run: make
       env:
         GOOS: linux
         GOARCH: amd64
