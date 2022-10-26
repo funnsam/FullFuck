@@ -1,3 +1,5 @@
+# Thanks to emm312 for this Makefile's base
+
 GOOS = $(shell go env GOOS)
 GOARCH = $(shell go env GOARCH)
 
@@ -21,8 +23,3 @@ endif
 
 all:
 	go build -o $(NAME) ./src
-
-push:
-	git add --all
-	git commit -m %1
-	git push -f -u origin HEAD:main
