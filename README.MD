@@ -28,6 +28,9 @@ See [here](https://github.com/funnsam/FullFuck/wiki/Basic-syntax)
 # Notes
 - Logo licenced under [CC4.0](/assets/README.md)
 
+# Contributions 
+[emm-312 (Made the basics of Makefile)](https://github.com/emm312)
+
 # Nice Screenshots
 ![A RNG Test](/assets/RNGTest.svg)
 
