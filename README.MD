@@ -32,10 +32,19 @@ See [here](https://github.com/funnsam/FullFuck/wiki/Basic-syntax)
 [emm-312 (Made the basics of Makefile)](https://github.com/emm312)
 
 # Nice Screenshots
+<details>
+<summary>A RNG Test</summary>
+
 ![A RNG Test](/assets/RNGTest.svg)
 
 ![The Result](/assets/RNGTestResult.svg)
 
+</details>
+
+<details>
+<summary>A Graphic Test</summary>
+
 ![A Graphic Test](/assets/Graphics.svg)
 
 ![The Result](/assets/GraphicsResult.svg)
+</details>
