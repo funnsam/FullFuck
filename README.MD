@@ -23,25 +23,7 @@ ffk input.ff output.urcl
 And this is just Hello world
 
 ## Syntax
-```
-+               will add one to the memory
--               will minus one to the memory
-[]              will loop the content inside [] forever
-0nn[]           will loop the content inside [] for nn times (nn is a hex number), also skips if memory is 0
->               will output the ASCII from the memory
-0nn>            will output the memory to URCL port nn (nn is a hex number)
-%port_name%>    will output the memory to URCL port portname
-<               will copy ASCII input to the memory
-0nn<            will copy data from URCL port nn to the memory (nn is a hex number)
-%port_name%>    will copy data from URCL port portname to the memory
-?i / ?I         will pop the thing in stack
-?o / ?O         will push a thing to the stack
-$               will get the current loop counter (highest number means first loop)
-```
-
-
-## The memory
-The memory is an 8-bit unsigned integer
+See [here](https://github.com/funnsam/FullFuck/wiki/Basic-syntax)
 
 # Notes
 - Logo licenced under [CC4.0](/assets/README.md)

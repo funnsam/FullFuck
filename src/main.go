@@ -77,9 +77,9 @@ func SpecialParsing(element byte) {
 		}
 	} else if ParsingSpecial == 10 {
 		switch element {
-		case 'i', 'I':
+		case '<', 'i', 'I':
 			TokenList = append(TokenList, Token{LoopLayer, 6, LoopID, ""})
-		case 'o', 'O':
+		case '>', 'o', 'O':
 			TokenList = append(TokenList, Token{LoopLayer, 7, LoopID, ""})
 		}
 		ParsingSpecial = 0
@@ -87,7 +87,7 @@ func SpecialParsing(element byte) {
 }
 
 func Parse(element byte) {
-	if ParsingSpecial != 0 {
+	if ParsingSpecial == 1 || ParsingSpecial == 2 || ParsingSpecial == 8 || ParsingSpecial == 10 {
 		SpecialParsing(element)
 		return
 	}
@@ -157,7 +157,7 @@ func CompileToURCL() []byte {
 
 func main() {
 	if len(os.Args) <= 2 {
-		fmt.Print("\x1b[1;31m>:(\t\tSee the docs!\n\x1b[1;0m")
+		fmt.Print("\x1b[1;31m>:(\t\tSee the docs! -> \n\x1b[1;0m")
 		os.Exit(-1)
 	}
 
