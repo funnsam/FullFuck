@@ -4,13 +4,13 @@ ifeq ($(OS), Windows_NT)
 endif
 
 ffk:
-	go build -o $(NAME) src/tokens.go src/main.go
+	go build -o $(NAME) ./src
 
 windows: # for the github action
-	go build -o ffk.exe src/tokens.go src/main.go
+	go build -o ffk.exe ./src
 
 unix:
-	go build -o ffk src/tokens.go src/main.go
+	go build -o ffk ./src
 
 push:
 	git add --all
