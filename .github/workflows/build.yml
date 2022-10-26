@@ -20,7 +20,7 @@ jobs:
 
     - name: Build Windows
       run: |
-           bash ./make.sh
+           make windows
            mv ffk ffk.exe
       env:
         GOOS: windows
@@ -28,7 +28,7 @@ jobs:
 
     - name: Build ARM Linux
       run: |
-        bash ./make.sh
+        make unix
         mv ffk ffkr
       env:
         GOOS: linux
@@ -36,7 +36,7 @@ jobs:
 
     - name: Build ARM macOS
       run: |
-        bash ./make.sh
+        make unix
         mv ffk ffkdr
       env:
         GOOS: darwin
@@ -44,14 +44,14 @@ jobs:
 
     - name: Build macOS
       run: |
-        bash ./make.sh
+        make unix
         mv ffk ffkd
       env:
         GOOS: darwin
         GOARCH: amd64
 
     - name: Build Linux
-      run: bash ./make.sh
+      run: make unix
       env:
         GOOS: linux
         GOARCH: amd64

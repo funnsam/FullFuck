@@ -54,3 +54,7 @@ The memory is an 8-bit unsigned integer
 ![A Graphic Test](/assets/Graphics.svg)
 
 ![The Result](/assets/GraphicsResult.svg)
+
+# Building from source
+Prerequisites: go, make
+Simply type `make` and the makefile will do everything for you.
