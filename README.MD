@@ -18,7 +18,7 @@ ffk input.ff output.urcl
 
 ## How fucked it is?
 ```
-+047[+]>01D[+]>007[+]>>003[+]>04F[-]>057[+]>008[-]>003[+]>008[-]>008[-]>043[-]>
++047[+]>01D[+]>007[+]>>003[+]>04F[-]>057[+]>008[-]>003[+]>006[-]>008[-]>043[-]>
 ```
 And this is just Hello world
 
@@ -28,7 +28,7 @@ See [here](https://github.com/funnsam/FullFuck/wiki/Basic-syntax)
 # Notes
 - Logo licenced under [CC4.0](/assets/README.md)
 
-# Contributions 
+# Contributors
 [emm-312 (Made the basics of Makefile)](https://github.com/emm312)
 
 # Nice Screenshots
