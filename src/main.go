@@ -50,6 +50,7 @@ var ParsingSpecialBuffer []uint8
 var LoopLoopsTimes = []int16{0}
 var t []uint8
 var OutputFile []byte
+var NoHLT bool
 
 var FullFuckToURCLTable = []string{
 	"ADD R1 R1 %d\n",
@@ -165,6 +166,12 @@ func main() {
 		os.Exit(-1)
 	}
 
+	for _, element := range os.Args {
+		if element == "--no-hlt" {
+			NoHLT = true
+		}
+	}
+
 	InputFile, Uerr = os.ReadFile(os.Args[1])
 	checkUErr()
 
@@ -174,7 +181,9 @@ func main() {
 
 	OutputFile = append(OutputFile, []byte("MINSTACK 0xEF\n")...)
 	OutputFile = append(OutputFile, CompileToURCL(Optimize(TokenList))...)
-	OutputFile = append(OutputFile, []byte("HLT")...)
+	if !NoHLT {
+		OutputFile = append(OutputFile, []byte("HLT")...)
+	}
 	os.WriteFile(os.Args[2], []byte(OutputFile), 0664)
 }
 
