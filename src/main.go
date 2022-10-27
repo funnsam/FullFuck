@@ -64,7 +64,7 @@ var FullFuckToURCLTable = []string{
 	"MOV R1 R%d\n",
 }
 
-// ParseSpecial used list: 1, 2, 8, 9, 10
+// ParseSpecial used list: 1, 2, 3, 8, 9, 10
 
 func SpecialParsing(element byte) {
 	if ParsingSpecial == 1 || ParsingSpecial == 2 {
@@ -82,6 +82,8 @@ func SpecialParsing(element byte) {
 			TokenList = append(TokenList, Token{LoopLayer, 6, LoopID, ""})
 		case '>', 'o', 'O':
 			TokenList = append(TokenList, Token{LoopLayer, 7, LoopID, ""})
+		case '[':
+			OpenBracket()
 		}
 		ParsingSpecial = 0
 	}
@@ -141,6 +143,8 @@ func CompileToURCL(OTokenList []OToken) []byte {
 		case 4:
 			if LoopLoopsTimes[element.Token.LoopID] == -1 {
 				resultAppend = fmt.Sprintf(".loop%d\n", element.Token.LoopID)
+			} else if LoopLoopsTimes[element.Token.LoopID] == -2 {
+				resultAppend = fmt.Sprintf("BRZ .loop%d_e R1\nMOV R%d R1\n.loop%d\n", element.Token.LoopID, element.Token.Lable+1, element.Token.LoopID)
 			} else {
 				resultAppend = fmt.Sprintf(FullFuckToURCLTable[4], element.Token.LoopID, element.Token.Lable+1, LoopLoopsTimes[element.Token.LoopID], element.Token.LoopID)
 			}

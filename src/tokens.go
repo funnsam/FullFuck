@@ -46,10 +46,12 @@ func OpenBracket() {
 	t, Uerr = hex.DecodeString(string(ParsingSpecialBuffer))
 	checkUErr()
 
-	if ParsingSpecial != 3 {
-		LoopLoopsTimes = append(LoopLoopsTimes, -1)
-	} else {
+	if ParsingSpecial == 3 {
 		LoopLoopsTimes = append(LoopLoopsTimes, int16(t[0]))
+	} else if ParsingSpecial == 10 {
+		LoopLoopsTimes = append(LoopLoopsTimes, -2)
+	} else {
+		LoopLoopsTimes = append(LoopLoopsTimes, -1)
 	}
 	ParsingSpecial = 0
 	ParsingSpecialBuffer = make([]uint8, 0, 2)
