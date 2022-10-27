@@ -166,7 +166,7 @@ func CompileToURCL(OTokenList []OToken) []byte {
 
 func main() {
 	if len(os.Args) <= 2 {
-		fmt.Print("\x1b[1;31m>:(\t\tSee the docs! -> \n\x1b[1;0m")
+		fmt.Print("\x1b[1;31m>:(\t\tSee the docs! -> https://github.com/funnsam/FullFuck/wiki/Basic-syntax\n\x1b[1;0m")
 		os.Exit(-1)
 	}
 
