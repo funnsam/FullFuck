@@ -35,16 +35,6 @@ func Optimize(TokenList []Token) []OToken {
 func UnrollSimpleLoops(TokenList []Token) []Token {
 	var TempTokenList []Token
 
-	/*
-		if CanUnroll {
-			Unroll
-			Append
-			Skip
-		} else {
-			Append
-		}
-	*/
-
 	var i int
 	for i < len(TokenList) {
 		if TokenList[i].ID == 4 && TokenList[i+1].ID == 0 && TokenList[i+2].ID == 5 {
