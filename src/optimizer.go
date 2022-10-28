@@ -44,6 +44,7 @@ func UnrollSimpleLoops(TokenList []Token) []Token {
 			}
 			i += 3
 		} else if TokenList[i].ID == 4 && TokenList[i+1].ID == 1 && TokenList[i+2].ID == 5 {
+			TempTokenList = append(TempTokenList, Token{0, 9, 0, ""})
 			for j := 0; j < int(LoopLoopsTimes[TokenList[i].LoopID]); j++ {
 				TempTokenList = append(TempTokenList, TokenList[i+1])
 			}
