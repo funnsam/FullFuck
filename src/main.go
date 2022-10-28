@@ -153,7 +153,6 @@ func CompileToURCL(OTokenList []OToken) []byte {
 				resultAppend = fmt.Sprintf(FullFuckToURCLTable[4], element.Token.LoopID, element.Token.Lable+1, LoopLoopsTimes[element.Token.LoopID], element.Token.LoopID)
 			}
 		case 5:
-			fmt.Println(element.Token.LoopID)
 			if LoopLoopsTimes[element.Token.LoopID] == -1 {
 				resultAppend = fmt.Sprintf("JMP .loop%d\n", element.Token.LoopID)
 			} else {

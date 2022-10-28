@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 type Stack []uint64
 
 var LoopStack Stack
@@ -9,8 +7,6 @@ var LoopStack Stack
 func (s *Stack) Push(data uint64) {
 	tmp := append(*s, data)
 	*s = tmp
-
-	fmt.Println(*s)
 }
 
 func (s *Stack) Pull() uint64 {
