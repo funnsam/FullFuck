@@ -55,4 +55,6 @@ func OpenBracket() {
 	}
 	ParsingSpecial = 0
 	ParsingSpecialBuffer = make([]uint8, 0, 2)
+
+	LoopStack.Push(LoopID)
 }

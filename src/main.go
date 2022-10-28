@@ -108,7 +108,7 @@ func Parse(element byte) {
 	case '[': // 4
 		OpenBracket()
 	case ']': // 5
-		TokenList = append(TokenList, Token{LoopLayer, 5, LoopID, ""})
+		TokenList = append(TokenList, Token{LoopLayer, 5, LoopStack.Pull(), ""})
 		LoopLayer--
 	case '?': // 6, 7
 		ParsingSpecial = 10
@@ -153,6 +153,7 @@ func CompileToURCL(OTokenList []OToken) []byte {
 				resultAppend = fmt.Sprintf(FullFuckToURCLTable[4], element.Token.LoopID, element.Token.Lable+1, LoopLoopsTimes[element.Token.LoopID], element.Token.LoopID)
 			}
 		case 5:
+			fmt.Println(element.Token.LoopID)
 			if LoopLoopsTimes[element.Token.LoopID] == -1 {
 				resultAppend = fmt.Sprintf("JMP .loop%d\n", element.Token.LoopID)
 			} else {
