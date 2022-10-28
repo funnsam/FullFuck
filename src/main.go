@@ -31,6 +31,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 import (
 	"fmt"
 	"os"
+	"strings"
 )
 
 type Token struct {
@@ -62,6 +63,7 @@ var FullFuckToURCLTable = []string{
 	"POP R1\n",
 	"PSH R1\n",
 	"MOV R1 R%d\n",
+	"BRZ ~+2 R1\n",
 }
 
 // ParseSpecial used list: 1, 2, 3, 8, 9, 10
@@ -116,13 +118,15 @@ func Parse(element byte) {
 		ParsingSpecial = 1
 	case '%':
 		ParsingSpecial = 8
+		// 9 is used for internal use
 	}
 }
 
 func CompileToURCL(OTokenList []OToken) []byte {
-	var ReturnValue []byte
-	for _, element := range OTokenList {
+	var TempList = make([]string, len(OTokenList))
+	for i, element := range OTokenList {
 		var resultAppend string
+
 		switch element.Token.ID & 0xFF {
 		case 0:
 			resultAppend = fmt.Sprintf(FullFuckToURCLTable[0], element.Repeated)
@@ -159,9 +163,10 @@ func CompileToURCL(OTokenList []OToken) []byte {
 		default:
 			resultAppend = FullFuckToURCLTable[element.Token.ID]
 		}
-		ReturnValue = append(ReturnValue, []byte(resultAppend)...)
+		TempList[i] = resultAppend
 	}
-	return ReturnValue
+
+	return []byte(strings.Join(TempList, ""))
 }
 
 func main() {
@@ -184,7 +189,7 @@ func main() {
 	}
 
 	OutputFile = append(OutputFile, []byte("MINSTACK 0xEF\n")...)
-	OutputFile = append(OutputFile, CompileToURCL(Optimize(TokenList))...)
+	OutputFile = append(OutputFile, CompileToURCL(Optimize(UnrollSimpleLoops(TokenList)))...)
 	if !NoHLT {
 		OutputFile = append(OutputFile, []byte("HLT")...)
 	}
